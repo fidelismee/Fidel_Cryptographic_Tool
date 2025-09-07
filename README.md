@@ -185,3 +185,5 @@ Fidel_Cryptographic_Tool/
 The backend uses Flask with automatic reloading for development. The frontend uses Vite with hot module replacement for fast development.
 
 Both servers need to be running simultaneously for the full application to work.
+
+Email : farisikhwanjalali@gmail.com
