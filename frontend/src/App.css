@@ -114,3 +114,14 @@ textarea::-webkit-scrollbar-thumb:hover {
     color: black !important;
   }
 }
+
+/* Fix for gradient text overlap */
+.gradient-text-fix {
+  position: relative;
+  z-index: 1;
+}
+
+.gradient-text-fix + p {
+  position: relative;
+  z-index: 0;
+}

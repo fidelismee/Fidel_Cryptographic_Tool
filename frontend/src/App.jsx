@@ -214,11 +214,11 @@ function App() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Fidel Encrypt/Decrypt
+          <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent gradient-text-fix">
+            Fidel Cryptographic Tool
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Secure text encryption and decryption tool with multiple cryptographic algorithms
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mt-2">
+            Secure text encryption, decryption, and encoding with multiple cryptographic algorithms
           </p>
         </div>
 
@@ -462,7 +462,10 @@ function App() {
         {/* Algorithm Information */}
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">About the Algorithms</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Encryption Algorithms */}
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Encryption Algorithms</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
               <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -470,9 +473,12 @@ function App() {
                 </svg>
               </div>
               <h3 className="font-bold text-blue-800 mb-3">Caesar Cipher</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
                 A simple substitution cipher where each letter is shifted by a fixed number of positions in the alphabet.
               </p>
+              <div className="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded">
+                <strong>Key:</strong> Shift amount (integer)
+              </div>
             </div>
             <div className="p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200">
               <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
@@ -481,9 +487,12 @@ function App() {
                 </svg>
               </div>
               <h3 className="font-bold text-green-800 mb-3">AES Encryption</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Advanced Encryption Standard - a secure symmetric encryption algorithm used worldwide for sensitive data protection.
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                Advanced Encryption Standard - a secure symmetric encryption algorithm used worldwide for sensitive data protection. Uses 128-bit encryption.
               </p>
+              <div className="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">
+                <strong>Key:</strong> Automatically generated (secure)
+              </div>
             </div>
             <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
               <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
@@ -492,9 +501,68 @@ function App() {
                 </svg>
               </div>
               <h3 className="font-bold text-purple-800 mb-3">Substitution Cipher</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Each letter is replaced with another letter according to a fixed substitution pattern or mapping.
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                Each letter is replaced with another letter according to a fixed substitution pattern or mapping for both uppercase and lowercase letters.
               </p>
+              <div className="text-xs text-purple-600 bg-purple-50 px-2 py-1 rounded">
+                <strong>Key:</strong> 52-character substitution key (a-zA-Z)
+              </div>
+            </div>
+          </div>
+
+          {/* Encoding Algorithms */}
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Encoding/Decoding Algorithms</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200">
+              <div className="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mb-3">
+                <span className="text-white text-xs font-bold">B64</span>
+              </div>
+              <h3 className="font-bold text-orange-800 mb-2 text-sm">Base64</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Encodes binary data into ASCII characters using 64 different characters. Commonly used for email attachments and data URLs.
+              </p>
+            </div>
+            <div className="p-6 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200">
+              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mb-3">
+                <span className="text-white text-xs font-bold">HEX</span>
+              </div>
+              <h3 className="font-bold text-red-800 mb-2 text-sm">Hexadecimal</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Represents binary data using 16 distinct symbols (0-9, A-F). Each byte is represented as two hexadecimal digits.
+              </p>
+            </div>
+            <div className="p-6 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl border border-indigo-200">
+              <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-3">
+                <span className="text-white text-xs font-bold">URL</span>
+              </div>
+              <h3 className="font-bold text-indigo-800 mb-2 text-sm">URL Encoding</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Percent-encoding for URLs. Replaces unsafe ASCII characters with "%" followed by two hexadecimal digits.
+              </p>
+            </div>
+            <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
+              <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center mb-3">
+                <span className="text-white text-xs font-bold">BIN</span>
+              </div>
+              <h3 className="font-bold text-gray-800 mb-2 text-sm">Binary</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Represents text using binary digits (0s and 1s). Each character is converted to its 8-bit binary representation.
+              </p>
+            </div>
+          </div>
+
+          {/* Algorithm Details */}
+          <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
+            <h3 className="font-semibold text-gray-800 mb-4">How the Algorithms Work</h3>
+            <div className="space-y-3 text-sm text-gray-700">
+              <p><strong>Encryption vs Encoding:</strong> Encryption requires a key to secure data, while encoding simply converts data to a different format without security.</p>
+              <p><strong>Caesar Cipher:</strong> Shifts each letter by a fixed number. For example, with shift 3: A→D, B→E, etc.</p>
+              <p><strong>AES:</strong> Uses symmetric key encryption with block cipher technology for secure data transmission.</p>
+              <p><strong>Substitution:</strong> Maps each letter to another letter based on a custom substitution key.</p>
+              <p><strong>Base64:</strong> Uses 64 characters (A-Z, a-z, 0-9, +, /) to represent binary data in text format. Example: "Hello" → "SGVsbG8="</p>
+              <p><strong>Hexadecimal:</strong> Represents each byte as two hex digits (0-9, A-F). Example: "Hello" → "48656c6c6f"</p>
+              <p><strong>URL Encoding:</strong> Replaces special characters with % followed by hex code. Example: "hello world" → "hello%20world"</p>
+              <p><strong>Binary:</strong> Converts each character to 8-bit binary. Example: "A" → "01000001"</p>
             </div>
           </div>
         </div>
