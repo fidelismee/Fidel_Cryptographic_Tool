@@ -12,7 +12,7 @@ load_dotenv()
 
 app = Flask(__name__, static_folder="static", static_url_path="/")
 
-CORS(app, resources={r"/*": {"origins": "http://100.25.119.99"}})
+CORS(app)
 # Generate or load encryption key
 def get_encryption_key():
     key = os.getenv('ENCRYPTION_KEY')
