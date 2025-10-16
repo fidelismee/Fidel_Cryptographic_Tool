@@ -21,7 +21,7 @@ function App() {
 
   const fetchEncodingTypes = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/encoding_types')
+      const response = await fetch('/api/encoding_types')
       const data = await response.json()
       setEncodingTypes(data.encoding_types)
     } catch (error) {
@@ -31,7 +31,7 @@ function App() {
 
   const fetchAlgorithms = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/algorithms')
+      const response = await fetch('/api/algorithms')
       const data = await response.json()
       setAlgorithms(data.algorithms)
     } catch (error) {
@@ -51,7 +51,7 @@ function App() {
     setSuccess('')
 
     try {
-      const response = await fetch('http://localhost:5001/api/encrypt', {
+      const response = await fetch('/api/encrypt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ function App() {
     setSuccess('')
 
     try {
-      const response = await fetch('http://localhost:5001/api/decrypt', {
+      const response = await fetch('/api/decrypt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ function App() {
     setSuccess('')
 
     try {
-      const response = await fetch('http://localhost:5001/api/encode', {
+      const response = await fetch('/api/encode', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ function App() {
     setSuccess('')
 
     try {
-      const response = await fetch('http://localhost:5001/api/decode', {
+      const response = await fetch('/api/decode', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
