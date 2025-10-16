@@ -3,6 +3,9 @@ from cryptography.fernet import Fernet
 import base64
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
+
+CORS(app, resources={r"/*": {"origins": "http://100.25.119.99"}})
 
 # Load environment variables
 load_dotenv()
